@@ -1,28 +1,27 @@
-pipeline{
-    agent{ node 
-        { 
-            label 'AGENT-1' 
-        } 
-    } 
-    stages{
-        stage ('Build') {
-            steps{
-                ehco "Building......"
-            sh '''
-                ls -ltr
-                pwd
-                echo "Hello From Github"
-            '''
+pipeline {
+    agent {
+        node {
+            label 'AGENT-1'
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building......"
+                sh '''
+                    ls -ltr
+                    pwd
+                    echo "Hello From Github"
+                '''
             }
         }
-        stage ('test') {
-            steps{
+        stage('test') {
+            steps {
                 echo "Testing..."
             }
-    }
-
-        stage ('Deploying') {
-            steps{
+        }
+        stage('Deploying') {
+            steps {
                 echo "Deploying..."
             }
         }
