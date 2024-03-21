@@ -2,7 +2,7 @@ pipeline{
     agent{ node { label 'AGENT-1' } } 
 
     stages{
-        stage (Build) {
+        stage ('Build') {
             steps{
                 ehco "Building......"
             sh '''
@@ -12,13 +12,13 @@ pipeline{
             '''
             }
         }
-        stage (test) {
+        stage ('test') {
             steps{
                 echo "Testing..."
             }
     }
 
-        stage (Deploying) {
+        stage ('Deploying') {
             steps{
                 echo "Deploying..."
             }
@@ -28,7 +28,7 @@ pipeline{
         always {
             echo "I will always run"
         }
-        succes {
+        success {
             echo "I will Only run if the job is success"
         }
     }
