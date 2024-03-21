@@ -11,7 +11,7 @@ pipeline {
                 sh '''
                     ls -ltr
                     pwd
-                    echo "Hello From Github"
+                    echo "Hello From Github......"
                 '''
             }
         }
@@ -28,10 +28,10 @@ pipeline {
     }
     post {
         always {
-            echo "I will always run"
+            echo "I will always run......"
         }
         success {
-            echo "I will Only run if the job is success"
+            echo "I will Only run if the job is success......"
         }
     }
 }
