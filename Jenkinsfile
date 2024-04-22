@@ -2,17 +2,16 @@ pipeline {
     agent { label 'AGENT_1'}
 
     stages {
-        stage ('Build')
-            steps{
+        stage('Build')
+            steps {
                 echo "Building"    
         }
-
-        stage ('Testing')
-            steps{
+        stage('Testing')
+            steps {
                 echo "Tesing"
         }
-        stage ('Deplyoing')
-            steps{
+        stage('Deplyoing')
+            steps {
                 echo "Deploying"
         }
     }
