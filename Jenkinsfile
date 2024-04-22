@@ -1,37 +1,19 @@
 pipeline {
-    agent {
-        node {
-            label 'AGENT-1'
-        }
-    }
+    agent { label 'AGENT_1'}
+
     stages {
-        stage('Build') {
-            steps {
-                echo "Building......"
-                sh '''
-                    ls -ltr
-                    pwd
-                    echo "Hello From Github......"
-                '''
-            }
+        stage('Build')
+            steps{
+                echo "Building"    
         }
-        stage('test') {
-            steps {
-                echo "Testing..."
-            }
+
+        stage('Testing')
+            steps{
+                echo "Tesing"
         }
-        stage('Deploying') {
-            steps {
-                echo "Deploying..."
-            }
-        }
-    }
-    post {
-        always {
-            echo "I will always run......"
-        }
-        success {
-            echo "I will Only run if the job is success......"
+        stage('Deplyoing')
+            steps{
+                echo "Deploying"
         }
     }
 }
