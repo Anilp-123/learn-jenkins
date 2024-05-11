@@ -24,21 +24,15 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            echo 'One way or another, I have finished'
+     post { 
+        always { 
+            echo 'I will always run whether job is success or not'
         }
-        success {
-            echo 'I succeeded!'
+        success{
+            echo 'I will run only when job is success'
         }
-        unstable {
-            echo 'I am unstable :/'
-        }
-        failure {
-            echo 'I failed :('
-        }
-        changed {
-            echo 'Things were different before...'
+        failure{
+            echo 'I will run when failure'
         }
     }
 }
