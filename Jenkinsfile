@@ -1,54 +1,36 @@
 pipeline {
-    agent { node { label 'Agent-1' } }
+    agent { label 'Agent-1'}
     options {
         ansiColor('xterm')
     }
-
     stages {
-        stage('Init') {
+        stage('Build') {
             steps {
-                sh'''
-                    ls -ltr
-                    pwd
-                    terraform init -migrate-state
-                '''
-            }
+                echo "Building..."
+            }     
         }
-        stage('Plan') {
+        stage('Testing') {
             steps {
+                echo "Testing...."
                 sh'''
-                    ls -ltr
                     pwd
-                    terraform plan
                 '''
             }
         }
-        stage('Approve') {
-            steps{
-                input "Shall I apply?"
-            }
-        }
-
-        stage('Apply') {
-            steps{
-                
-                sh '''
-                    pwd
-                    ls -ltr
-                    terraform apply -auto-approve
-                '''
+        stage('Deploying') {
+            steps {
+                echo "Deploying...."
             }
         }
     }
-
     post { 
         always { 
             echo 'I will always run whether job is success or not'
         }
-        success{
+        success {
             echo 'I will run only when job is success'
         }
-        failure{
+        failure {
             echo 'I will run when failure'
         }
     }
