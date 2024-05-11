@@ -10,7 +10,7 @@ pipeline {
                 sh'''
                     ls -ltr
                     pwd
-                    terraform init
+                    terraform init -migrate-state
                 '''
             }
         }
