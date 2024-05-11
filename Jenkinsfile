@@ -20,8 +20,6 @@ pipeline {
         stage('Deploying') {
             steps {
                 echo "Deploying...."
-                error
-            }
         }
     }
      post { 
