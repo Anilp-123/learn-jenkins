@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'Agent-1'}
-     options {
+    options {
         ansiColor('xterm')
     }
     stages {
@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Testing') {
             steps {
-                echo "Tesing...."
+                echo "Testing...."
                 sh'''
                     pwd
                 '''
@@ -20,16 +20,17 @@ pipeline {
         stage('Deploying') {
             steps {
                 echo "Deploying...."
+            }
         }
     }
-     post { 
+    post { 
         always { 
             echo 'I will always run whether job is success or not'
         }
-        success{
+        success {
             echo 'I will run only when job is success'
         }
-        failure{
+        failure {
             echo 'I will run when failure'
         }
     }
